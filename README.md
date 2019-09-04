@@ -1,6 +1,8 @@
-#Stability deployment for syndesis long-running test
+## WIP
 
-##Architecture
+# Stability deployment for syndesis long-running test
+
+## Architecture
  - Syndesis/Fuse online installation
 
  - AMQ broker
