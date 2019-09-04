@@ -11,13 +11,15 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 		<!-- configure the versions you want to use here -->
-		<fabric8.version>3.0.11.fuse-710008</fabric8.version>
-		<spring-boot.version>1.5.13.RELEASE</spring-boot.version>
+		<fabric8.version>3.0.11.fuse-740029-redhat-00002</fabric8.version>
+		<spring-boot.version>1.5.17.RELEASE</spring-boot.version>
+		<fuse.bom.version>7.4.0.fuse-740036-redhat-00001</fuse.bom.version>
 
 		<!-- maven plugin versions -->
-		<fabric8.maven.plugin.version>3.5.33.fuse-710008</fabric8.maven.plugin.version>
+		<fabric8.maven.plugin.version>3.5.40</fabric8.maven.plugin.version>
 		<maven-compiler-plugin.version>3.6.0</maven-compiler-plugin.version>
 		<maven-surefire-plugin.version>2.19.1</maven-surefire-plugin.version>
+		<lombok.version>1.18.8</lombok.version>
 	</properties>
 
 	<dependencyManagement>
@@ -29,6 +31,11 @@
 			<version>${fabric8.version}</version>
 			<type>pom</type>
 			<scope>import</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
 		</dependency>
 	</dependencies>
 	</dependencyManagement>
