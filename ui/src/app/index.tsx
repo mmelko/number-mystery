@@ -8,7 +8,7 @@ import '@app/app.css';
 
 const App: React.FunctionComponent = () => {
   return (
-    <DocumentTitle title="Patternfly React Seed | App Title">
+    <DocumentTitle title="Syndesis soak test overview">
       <Router>
         <AppLayout>
           <AppRoutes />

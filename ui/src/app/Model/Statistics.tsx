@@ -14,6 +14,7 @@ class Statistics {
     public getSecretNumber() {
         return this.secretNumber;
     }
+
     public getAttempts() {
         return this.attempts;
     }
@@ -21,6 +22,7 @@ class Statistics {
     public getGuessed() {
         return this.guessed;
     }
+    
     public getLastOne() {
         return this.lastOne;
     }

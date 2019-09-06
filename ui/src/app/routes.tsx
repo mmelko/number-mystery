@@ -73,7 +73,7 @@ const routes: IAppRoute[] = [
     icon: null,
     label: 'Status',
     path: '/',
-    title: 'Main Dashboard Title'
+    title: 'Syndesissoak test overview'
   }
 ];
 

@@ -1,4 +1,6 @@
 import { Statistics } from '../Model/Statistics';
+import { Integration } from '../Model/Integration';
+import { Activities } from '../Model/Activities';
 
 function formatStats(data: any): Statistics {
     return {
@@ -8,11 +10,38 @@ function formatStats(data: any): Statistics {
         lastOne: data.lastOne
     }
 }
-
-function getStats():Promise<Statistics> { 
-   return fetch(`https://bypasscors.herokuapp.com/api/?url=http://number-creator-number-mystery.b9ad.pro-us-east-1.openshiftapps.com/`)
-    .then(res => res.json())
-    .then(stats => formatStats(stats));
+function formatIntegration(data: any): Integration {
+    return {
+        id: data.id,
+        name: data.name,
+        currentState: data.currentState,
+        targetState: data.targetState
+    };
 }
 
-export {getStats};
+function formatActivities(data: any): Activities {
+    var date = new Date(data.activityList[0].at);
+    return {
+        integrationName : data.integrationName,
+        activitiesCount : data.activityList.length,
+        lastOne: date
+    };
+}
+
+function getStats(): Promise<Statistics> {
+    return fetch(`https://bypasscors.herokuapp.com/api/?url=http://number-creator-number-mystery.b9ad.pro-us-east-1.openshiftapps.com/`)
+        .then(res => res.json())
+        .then(stats => formatStats(stats));
+}
+
+function getIntegrations(): Promise<Integration[]> {
+    return fetch("https://bypasscors.herokuapp.com/api/?url=http://number-statistics-syndesis.b9ad.pro-us-east-1.openshiftapps.com/health/integrations")
+        .then(res => res.json())
+        .then(res => res.map(formatIntegration))
+}
+function getActivities(): Promise<Activities[]> {
+    return fetch("https://bypasscors.herokuapp.com/api/?url=http://number-statistics-syndesis.b9ad.pro-us-east-1.openshiftapps.com/health/activities")
+        .then(res => res.json())
+        .then(res => res.map(formatActivities))
+}
+export { getStats, getIntegrations,getActivities  };
