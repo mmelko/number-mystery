@@ -9,8 +9,13 @@ import org.springframework.context.annotation.Bean;
 public class CreatorApplication {
 
     @Bean
-    public NumberCreator creator() {
+    public NumberCreatorController creator() {
         return new NumberCreator();
+    }
+
+    @Bean
+    public SecretNumber getSecretNumber() {
+        return new SecretNumber();
     }
 
     public static void main(String[] args) {

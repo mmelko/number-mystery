@@ -3,17 +3,13 @@ package com.redhat.fuse.fis.stability;
 import lombok.Getter;
 import lombok.Setter;
 
+@Getter
+@Setter
 public class SecretNumber {
 
-    @Getter
-    @Setter
     private int secretNumber;
-    @Getter
     private long attempts;
-    @Getter
     private int guessed;
-
-    @Getter
     private int lastOne;
 
     public SecretNumber() {
