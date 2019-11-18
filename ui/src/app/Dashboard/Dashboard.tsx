@@ -34,6 +34,7 @@ class Dashboard extends React.Component<{ name: string }, state> {
         attempts={this.state.stats.attempts}
         guessed={this.state.stats.guessed}
         lastOne={this.state.stats.lastOne} />
+        <div></div>
       <Grid gutter='md'>
         <GridItem span={8} offset={2}>
           <IntegrationsTable activities={this.state.activities} integrations={this.state.integrations} /></GridItem>
@@ -47,19 +48,13 @@ class Dashboard extends React.Component<{ name: string }, state> {
     StatsService.getStats().then(statistics => {
       this.setState({ stats: statistics });
     });
-    // StatsService.getIntegrations().then(integ => {
-    //   this.setState({ integrations: integ });
-    // });
-    // StatsService.getActivities().then(activ => {
-    //   this.setState({ activities: activ });
-    // })
 
     Promise.all([StatsService.getIntegrations(),StatsService.getActivities()]).then(values =>
       {
         this.setState({
           integrations:values[0],
           activities: values[1]
-        })
+        });
       });
   };
 }

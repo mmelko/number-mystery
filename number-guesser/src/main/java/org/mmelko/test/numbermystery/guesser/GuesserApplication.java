@@ -1,4 +1,4 @@
-package com.redhat.fuse.fis.stability;
+package org.mmelko.test.numbermystery.guesser;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

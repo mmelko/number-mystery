@@ -25,7 +25,7 @@ const StatisticsGrid: React.FunctionComponent<Statistics> = (props) => {
             <NumberCard header='Guesed' number={props.guessed} />
         </GridItem>
         <GridItem span={4} offset={6} rowSpan={2}>
-            <NumberCard header='Last One' number={props.lastOne} />I
+            <NumberCard header='Last One' number={props.lastOne}/>
             </GridItem>
     </Grid>;
 }

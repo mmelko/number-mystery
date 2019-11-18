@@ -29,18 +29,18 @@ function formatActivities(data: any): Activities {
 }
 
 function getStats(): Promise<Statistics> {
-    return fetch(`https://bypasscors.herokuapp.com/api/?url=http://number-creator-number-mystery.b9ad.pro-us-east-1.openshiftapps.com/`)
+    return fetch(`http://number-creator-number-mystery.b9ad.pro-us-east-1.openshiftapps.com/`)
         .then(res => res.json())
         .then(stats => formatStats(stats));
 }
 
 function getIntegrations(): Promise<Integration[]> {
-    return fetch("https://bypasscors.herokuapp.com/api/?url=http://number-statistics-syndesis.b9ad.pro-us-east-1.openshiftapps.com/health/integrations")
+    return fetch("http://localhost:8081/health/integrations")
         .then(res => res.json())
         .then(res => res.map(formatIntegration))
 }
 function getActivities(): Promise<Activities[]> {
-    return fetch("https://bypasscors.herokuapp.com/api/?url=http://number-statistics-syndesis.b9ad.pro-us-east-1.openshiftapps.com/health/activities")
+    return fetch("http://localhost:8081/health/activities")
         .then(res => res.json())
         .then(res => res.map(formatActivities))
 }

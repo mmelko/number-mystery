@@ -1,4 +1,4 @@
-package com.redhat.fuse.fis.stability;
+package org.mmelko.test.numbermystery.creator;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,4 +1,4 @@
-package com.redhat.fuse.fis.stability;
+package org.mmelko.test.numbermystery.guesser;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
