@@ -9,11 +9,6 @@ import org.springframework.context.annotation.Bean;
 public class CreatorApplication {
 
     @Bean
-    public NumberCreatorController creator() {
-        return new NumberCreator();
-    }
-
-    @Bean
     public SecretNumber getSecretNumber() {
         return new SecretNumber();
     }
