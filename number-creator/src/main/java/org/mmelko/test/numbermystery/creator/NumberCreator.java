@@ -3,25 +3,31 @@ package org.mmelko.test.numbermystery.creator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-
-public class NumberCreator implements NumberCreatorController {
+@RestController
+@RequestMapping("/")
+public class NumberCreator{
 
     @Autowired
     private SecretNumber secretNumber;
 
     private static final Logger LOG = LoggerFactory.getLogger(NumberCreator.class);
 
-    @Override
+    @GetMapping("/create")
     public String createNew() {
         secretNumber.setSecretNumber(ThreadLocalRandom.current().nextInt(1, 100001));
         return secretNumber.getSecretNumber() + " is secretNumber";
     }
 
-    @Override
-    public String compare(String number) {
+    @PostMapping("/compare")
+    public String compare(@RequestBody String number) {
         LOG.info("secret number: " + secretNumber);
         final int guess = Integer.parseInt(number);
 
@@ -43,12 +49,12 @@ public class NumberCreator implements NumberCreatorController {
         }
     }
 
-    @Override
+    @GetMapping("/")
     public SecretNumber status() {
         return secretNumber;
     }
 
-    @Override
+    @GetMapping("/reset")
     public SecretNumber reset() {
         secretNumber.resetAll();
         return secretNumber;
